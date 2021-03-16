@@ -23,4 +23,6 @@ The VVVote admin tool can be used like this:
 vvvote-admin.sh createKeypair p 1 /tmp/vvvote/
 ~~~
 
+The `vvvote-admin.sh` command works in the Nix and also on the deployed VVVote VMs.
+
 `/tmp/vvvote` must have a subdir called `voting-keys` which is expected by the script.

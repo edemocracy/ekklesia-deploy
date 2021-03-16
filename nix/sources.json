@@ -5,10 +5,10 @@
         "homepage": "",
         "owner": "edemocracy",
         "repo": "ekklesia-portal",
-        "rev": "754670b6e7bcff59eb055af3c9503f799f444d6f",
-        "sha256": "17qgcb2jwsa0xbdgqysnbbf5gxpcjn00w5pqm9ng61izyavgq38r",
+        "rev": "cdcb11cb72446ebff311434ce12278c87f32d55c",
+        "sha256": "0fh6p7p9vg5kyrfmxj2qc1csdwmg1dbwxjfdjyixxqahdryim0gv",
         "type": "tarball",
-        "url": "https://github.com/edemocracy/ekklesia-portal/archive/754670b6e7bcff59eb055af3c9503f799f444d6f.tar.gz",
+        "url": "https://github.com/edemocracy/ekklesia-portal/archive/cdcb11cb72446ebff311434ce12278c87f32d55c.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -41,10 +41,10 @@
         "homepage": "",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "df8e3bd110921621d175fad88c9e67909b7cb3d3",
-        "sha256": "1z20y0lblb452h2gghgds34g7lrj7v8gfhz66w687ws8jqdm3bzz",
+        "rev": "6109ba4f3077e2988780452ab16cfcf627691396",
+        "sha256": "13b41baw5qvm6x4afsi3m0nfwpfalikw5rlzfl3dhp44waqvr2lk",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/df8e3bd110921621d175fad88c9e67909b7cb3d3.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/6109ba4f3077e2988780452ab16cfcf627691396.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
