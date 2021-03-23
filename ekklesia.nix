@@ -31,27 +31,7 @@ in
         pkgs.jq
       ];
 
-      networking.firewall.allowedTCPPorts = [ 80 443 ];
-
       services.nginx = with config.settings; {
-        enable = true;
-        enableReload = true;
-        statusPage = true;
-        recommendedGzipSettings = true;
-        recommendedOptimisation = true;
-        recommendedProxySettings = true;
-        recommendedTlsSettings = true;
-        sslCiphers = lib.concatStringsSep ":" [
-          "ECDHE-ECDSA-AES256-GCM-SHA384"
-          "ECDHE-ECDSA-CHACHA20-POLY1305"
-          "ECDHE-RSA-AES256-GCM-SHA384"
-          "ECDHE-RSA-CHACHA20-POLY1305"
-        ];
-
-        commonHttpConfig = ''
-          log_format request_body $request_body;
-        '';
-
         virtualHosts."portal.${domain}" =
           basicVhostSettings // {
             locations = {
@@ -207,8 +187,8 @@ in
         enableWebclient = true;
         webclientHostname = vvvote1Hostname;
         privateKeydir = "/var/lib/vvvote/private-keys";
-        permissionPrivateKeyFile = "/var/lib/vvvote/private-keys/PermissionServer1.privatekey.pem.php";
-        tallyPrivateKeyFile = "/var/lib/vvvote/private-keys/TallyServer1.privatekey.pem.php";
+        permissionPrivateKeyFile = "PermissionServer1.privatekey.pem.php";
+        tallyPrivateKeyFile = "TallyServer1.privatekey.pem.php";
 
         settings = {
           backendUrls = [ "https://${vvvote1Hostname}/backend" "https://${vvvote2Hostname}/backend" ];
@@ -216,7 +196,7 @@ in
           idServerUrl = keycloakUrl;
           publicKeydir = "/var/lib/vvvote/public-keys";
           serverNumber = 1;
-          votePort = 443;
+          votePort = 80;
           webclientUrl = "http://${vvvote1Hostname}/vvvote";
           oauth = {
             clientIds = [ vvvote1Hostname vvvote2Hostname ];
@@ -248,18 +228,18 @@ in
         backendHostname = vvvote2Hostname;
 
         createDatabaseLocally = true;
-        permissionPrivateKeyFile = "/var/lib/vvvote/private-keys/PermissionServer2.privatekey.pem.php";
-        tallyPrivateKeyFile = "/var/lib/vvvote/private-keys/TallyServer2.privatekey.pem.php";
         privateKeydir = "/var/lib/vvvote/private-keys";
+        permissionPrivateKeyFile = "PermissionServer2.privatekey.pem.php";
+        tallyPrivateKeyFile = "TallyServer2.privatekey.pem.php";
 
         settings = {
-          backendUrls = [ "https://${vvvote1Hostname}/backend" "https://${vvvote2Hostname}/backend" ];
+          backendUrls = [ "http://${vvvote1Hostname}/backend" "http://${vvvote2Hostname}/backend" ];
           debug = true;
           idServerUrl = keycloakUrl;
           isTallyServer = true;
           publicKeydir = "/var/lib/vvvote/public-keys";
           serverNumber = 2;
-          votePort = 443;
+          votePort = 80;
           webclientUrl = "http://${vvvote1Hostname}/vvvote";
           oauth = {
             clientIds = [ vvvote1Hostname vvvote2Hostname ];

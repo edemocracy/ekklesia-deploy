@@ -29,10 +29,10 @@
         "homepage": "",
         "owner": "edemocracy",
         "repo": "nix-ekklesia-vvvote",
-        "rev": "f8617834b7d6c6d7ae05a8847cc90bca9eb6caf8",
-        "sha256": "14273rj7f27mb069zp9pdf1aa7hmdhjn5yyg7kz1jg471zhjs637",
+        "rev": "6714aab26376b80e9e7759f0a74e1e2fce11a594",
+        "sha256": "17x4zkmm0n97f4w5pavcisz2lv5smpvpb182a924pv7lzrmk8jdr",
         "type": "tarball",
-        "url": "https://github.com/edemocracy/nix-ekklesia-vvvote/archive/f8617834b7d6c6d7ae05a8847cc90bca9eb6caf8.tar.gz",
+        "url": "https://github.com/edemocracy/nix-ekklesia-vvvote/archive/6714aab26376b80e9e7759f0a74e1e2fce11a594.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs": {
