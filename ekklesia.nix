@@ -137,8 +137,8 @@ in
         after = [ "postgresql.service" ];
         path = [ config.services.postgresql.package ];
         script = ''
-          psql -c 'CREATE DATABASE IF NOT EXISTS "ekklesia-portal"' || true
-          psql -c 'CREATE USER IF NOT EXISTS "ekklesia-portal"' || true
+          psql -c 'CREATE DATABASE "ekklesia-portal"' || true
+          psql -c 'CREATE USER "ekklesia-portal"' || true
           psql -c 'GRANT ALL ON DATABASE "ekklesia-portal" TO "ekklesia-portal"'
         '';
 
