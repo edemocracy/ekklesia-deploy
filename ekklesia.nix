@@ -4,9 +4,9 @@ with builtins;
 
 let
   sources_ = if (sources == null) then import ./nix/sources.nix else sources;
-  ekklesia-portal-src = sources_.ekklesia-portal;
+  #ekklesia-portal-src = sources_.ekklesia-portal;
   # Point to local portal code to make experimenting easier.
-  # ekklesia-portal-src = ../ekklesia-portal;
+  ekklesia-portal-src = ../ekklesia-portal;
   ekklesia-vvvote-src = sources_.nix-ekklesia-vvvote;
   # ekklesia-vvvote-src = ../nix-ekklesia-vvvote;
 
@@ -16,11 +16,7 @@ in
 
   portal =
     { config, pkgs, lib, ...}:
-    let
-      ekklesiaPortalDeps = import "${ekklesia-portal-src}/nix/deps.nix" {};
-      inherit (ekklesiaPortalDeps) pythonDevTest;
-
-    in {
+    {
       imports = [
         "${ekklesia-portal-src}/nix/modules"
         ./vm-common.nix
@@ -158,7 +154,8 @@ in
         script = ''
           cd ${ekklesia-portal-src}
           export PYTHONPATH=./src
-          ${pythonDevTest}/bin/python tests/create_test_db.py \
+          ${config.services.ekklesia.portal.app}/bin/python \
+            tests/create_test_db.py \
             -c ${config.services.ekklesia.portal.configFile} --doit
         '';
         serviceConfig = {

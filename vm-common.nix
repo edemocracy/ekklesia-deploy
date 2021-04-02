@@ -8,6 +8,9 @@
   };
 
   config = {
+
+    nixpkgs.localSystem.system = "x86_64-linux";
+
     environment.shellAliases = {
       sc = "systemctl";
       jc = "journalctl";
