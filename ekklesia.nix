@@ -16,11 +16,7 @@ in
 
   portal =
     { config, pkgs, lib, ...}:
-    let
-      ekklesiaPortalDeps = import "${ekklesia-portal-src}/nix/deps.nix" {};
-      inherit (ekklesiaPortalDeps) pythonDevTest;
-
-    in {
+    {
       imports = [
         "${ekklesia-portal-src}/nix/modules"
         ./vm-common.nix
@@ -154,12 +150,12 @@ in
         after = [ "ekklesia-portal-db.service" ];
         requires = [ "ekklesia-portal-db.service" ];
         requiredBy = [ "ekklesia-portal.service" ];
+        path = [ config.services.postgresql.package ];
 
         script = ''
           cd ${ekklesia-portal-src}
-          export PYTHONPATH=./src
-          ${pythonDevTest}/bin/python tests/create_test_db.py \
-            -c ${config.services.ekklesia.portal.configFile} --doit
+          psql ekklesia-portal -f tests/test_db.sql
+
         '';
         serviceConfig = {
           Type = "oneshot";
