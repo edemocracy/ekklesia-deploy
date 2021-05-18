@@ -187,12 +187,14 @@ in
         tallyPrivateKeyFile = "TallyServer1.privatekey.pem.php";
 
         settings = {
+          anonymizerUrl = "";
           backendUrls = [ "https://${vvvote1Hostname}/backend" "https://${vvvote2Hostname}/backend" ];
           debug = true;
           idServerUrl = keycloakUrl;
           publicKeydir = "/var/lib/vvvote/public-keys";
           serverNumber = 1;
           votePort = 80;
+          voteScheme = "http";
           webclientUrl = "http://${vvvote1Hostname}/vvvote";
           oauth = {
             clientIds = [ vvvote1Hostname vvvote2Hostname ];
@@ -229,6 +231,7 @@ in
         tallyPrivateKeyFile = "TallyServer2.privatekey.pem.php";
 
         settings = {
+          anonymizerUrl = "";
           backendUrls = [ "http://${vvvote1Hostname}/backend" "http://${vvvote2Hostname}/backend" ];
           debug = true;
           idServerUrl = keycloakUrl;
@@ -236,6 +239,7 @@ in
           publicKeydir = "/var/lib/vvvote/public-keys";
           serverNumber = 2;
           votePort = 80;
+          voteScheme = "http";
           webclientUrl = "http://${vvvote1Hostname}/vvvote";
           oauth = {
             clientIds = [ vvvote1Hostname vvvote2Hostname ];
