@@ -18,7 +18,14 @@ the VVVote admin script which can be used to create the needed keys.
 Deploy to virtualbox with:
 
 ~~~
+git clone https://github.com/edemocracy/ekklesia-deploy
+cd ekklesia-deploy
 nix-shell
+~~~
+
+You are now in a Nix shell that makes the `nixops` command available.
+
+~~~
 # in Nix shell
 nixops create -d ekklesia-vbox ./ekklesia.nix ./ekklesia-virtualbox.nix
 nixops deploy -d ekklesia-vbox
