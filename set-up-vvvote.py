@@ -6,6 +6,7 @@ import subprocess
 import json
 
 
+DEPLOYMENT_NAME = "ekklesia-test"
 KEEP_KEYS = True
 
 
@@ -29,7 +30,7 @@ def secret(cmd_template, **secrets):
 
 def get_ekklesia_settings(vm_name):
     settings = json.loads(
-        run(f"nixops show-option -d ekklesia-vbox {vm_name} services.ekklesia --json").stdout)
+        run(f"nixops show-option -d {DEPLOYMENT_NAME} {vm_name} services.ekklesia --json").stdout)
 
     #pprint(settings)
     return settings
@@ -40,8 +41,8 @@ def create_and_fetch_keys(server_number):
     settings = get_ekklesia_settings(vm_name)
     keydir = Path(settings["vvvote"]["privateKeydir"])
 
-    ssh = f"nixops ssh -d ekklesia-vbox {vm_name}"
-    fetch = f"nixops scp -d ekklesia-vbox --from {vm_name}"
+    ssh = f"nixops ssh -d {DEPLOYMENT_NAME} {vm_name}"
+    fetch = f"nixops scp -d {DEPLOYMENT_NAME} --from {vm_name}"
 
     if not KEEP_KEYS or ret(f"{ssh} stat {keydir.parent}/.dont_overwrite_keys") > 0:
         sh(f"{ssh} mkdir -p {keydir.parent}/voting-keys")
@@ -62,8 +63,8 @@ def push_public_keys(server_number):
     settings = get_ekklesia_settings(vm_name)
     keydir = Path(settings["vvvote"]["settings"]["publicKeydir"])
 
-    ssh = f"nixops ssh -d ekklesia-vbox {vm_name}"
-    push = f"nixops scp -d ekklesia-vbox --to {vm_name}"
+    ssh = f"nixops ssh -d {DEPLOYMENT_NAME} {vm_name}"
+    push = f"nixops scp -d {DEPLOYMENT_NAME} --to {vm_name}"
 
     sh(f"{ssh} mkdir -p {keydir}")
     keys = Path("vvvote-public-keys").glob("*.publickey.pem")
@@ -77,7 +78,7 @@ def set_up_secrets(server_number):
     oauth_path = settings["vvvote"]["oauthClientSecretFile"]
     notify_path = settings["vvvote"]["notifyClientSecretFile"]
 
-    ssh = f"nixops ssh -d ekklesia-vbox {vm_name}"
+    ssh = f"nixops ssh -d {DEPLOYMENT_NAME} {vm_name}"
     oauth_client_secret = getpass(f"oauth client secret for {vm_name} (Enter means no change):")
     notify_secret = getpass(f"notify client secret for {vm_name} (Enter means no change):")
 
