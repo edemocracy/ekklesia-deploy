@@ -5,10 +5,10 @@
         "homepage": "",
         "owner": "edemocracy",
         "repo": "ekklesia-portal",
-        "rev": "00b6563162776f259f29a921f650f0975f117b3d",
-        "sha256": "1jp252jxs9xv1cpg0p9bpd4rwvrzfw8g84h45inah5l5w704ixps",
+        "rev": "a06aa6d9ff9270ccf106c679179b396b00860cad",
+        "sha256": "1kcdsj131sgxdjx39x027agnp0n4yafblyqidxf9v9g81xh9i4gf",
         "type": "tarball",
-        "url": "https://github.com/edemocracy/ekklesia-portal/archive/00b6563162776f259f29a921f650f0975f117b3d.tar.gz",
+        "url": "https://github.com/edemocracy/ekklesia-portal/archive/a06aa6d9ff9270ccf106c679179b396b00860cad.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nix-ekklesia-vvvote": {
@@ -21,6 +21,18 @@
         "sha256": "1i9dljk3clxwdq3sv3grhsr4zjwh90aq76akgj1ly2amaa20vskf",
         "type": "tarball",
         "url": "https://github.com/edemocracy/nix-ekklesia-vvvote/archive/70192b7d669268dcda35a754f51d45fcf7c7cb3e.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "nixops": {
+        "branch": "master",
+        "description": "NixOps is a tool for deploying to NixOS machines in a network or cloud.",
+        "homepage": "https://nixos.org/nixops",
+        "owner": "nixOS",
+        "repo": "nixops",
+        "rev": "45256745cef246dabe1ae8a7d109988f190cd7ef",
+        "sha256": "0ni1v8ppg5cf35gq7nzd50kajxzp5zkbzhf022in0fgbjcprlzr2",
+        "type": "tarball",
+        "url": "https://github.com/nixOS/nixops/archive/45256745cef246dabe1ae8a7d109988f190cd7ef.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs": {
