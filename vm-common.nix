@@ -40,10 +40,10 @@
     };
 
     settings = rec {
-      domain = "localhost";
+      domain = ""; # include a leading . here
       notifyUrl = "https://notify.test.ekklesiademocracy.org/freeform_message";
-      vvvote1Hostname = "vvvote1.${domain}";
-      vvvote2Hostname = "vvvote2.${domain}";
+      vvvote1Hostname = "vvvote1${domain}";
+      vvvote2Hostname = "vvvote2${domain}";
       keycloakUrl = "https://keycloak.test.ekklesiademocracy.org/auth/realms/test/protocol/openid-connect/";
 
       basicVhostSettings = {

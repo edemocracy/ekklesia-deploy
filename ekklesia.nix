@@ -113,8 +113,8 @@ in
           voting_modules = {
             vvvote_test_ekklesiademocracy = {
               api_urls = [
-                "${vvvote1Hostname}/backend/api/v1"
-                "${vvvote2Hostname}/backend/api/v1"
+                "${vvvote1Hostname}/api/v1"
+                "${vvvote2Hostname}/api/v1"
               ];
               defaults = {
                 auth_server_id = "ekklesia";
@@ -176,9 +176,8 @@ in
 
       services.ekklesia.vvvote = with config.settings; {
         enableBackend = true;
-        backendPrefix = "/backend";
         backendHostname = vvvote1Hostname;
-
+	backendPrefix = "";
         createDatabaseLocally = true;
         enableWebclient = true;
         webclientHostname = vvvote1Hostname;
@@ -188,7 +187,7 @@ in
 
         settings = {
           anonymizerUrl = "";
-          backendUrls = [ "https://${vvvote1Hostname}/backend" "https://${vvvote2Hostname}/backend" ];
+          backendUrls = [ "http://${vvvote1Hostname}" "http://${vvvote2Hostname}" ];
           debug = true;
           idServerUrl = keycloakUrl;
           publicKeydir = "/var/lib/vvvote/public-keys";
@@ -222,7 +221,7 @@ in
 
       services.ekklesia.vvvote = with config.settings; {
         enableBackend = true;
-        backendPrefix = "/backend";
+        backendPrefix = "";
         backendHostname = vvvote2Hostname;
 
         createDatabaseLocally = true;
@@ -232,7 +231,7 @@ in
 
         settings = {
           anonymizerUrl = "";
-          backendUrls = [ "http://${vvvote1Hostname}/backend" "http://${vvvote2Hostname}/backend" ];
+          backendUrls = [ "http://${vvvote1Hostname}" "http://${vvvote2Hostname}" ];
           debug = true;
           idServerUrl = keycloakUrl;
           isTallyServer = true;
