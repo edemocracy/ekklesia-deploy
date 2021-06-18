@@ -231,7 +231,7 @@ in
 
         settings = {
           anonymizerUrl = "";
-          backendUrls = [ "http://${vvvote1Hostname}" "http://${vvvote2Hostname}" ];
+          backendUrls = [ "https://${vvvote1Hostname}" "https://${vvvote2Hostname}" ];
           debug = true;
           idServerUrl = keycloakUrl;
           isTallyServer = true;
@@ -239,7 +239,7 @@ in
           serverNumber = 2;
           votePort = 80;
           voteScheme = "http";
-          webclientUrl = "http://${vvvote1Hostname}/vvvote";
+          webclientUrl = "https://${vvvote1Hostname}/vvvote";
           oauth = {
             clientIds = [ vvvote1Hostname vvvote2Hostname ];
             inherit notifyUrl;

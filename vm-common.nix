@@ -16,6 +16,11 @@
       jc = "journalctl";
       l = "journalctl";
     };
+	security.acme = {
+	  	server = "https://acme-staging-v02.api.letsencrypt.org/directory";
+		acceptTerms = true;
+		email = "abc@def.org";
+	};
 
     networking.firewall.allowedTCPPorts = [ 80 443 ];
 
@@ -37,6 +42,16 @@
       commonHttpConfig = ''
         log_format request_body $request_body;
       '';
+      virtualHosts.vvvote1 = {
+	enableACME = true;
+	addSSL = true;
+#	sslCertificate = "/var/ssl.pem";
+#	sslCertificateKey = "/var/ssl-key.pem";
+      };
+      virtualHosts.vvvote2 = {
+	addSSL = true;
+	enableACME = true;
+      };
     };
 
     settings = rec {
@@ -48,7 +63,7 @@
 
       basicVhostSettings = {
         #forceSSL = true;
-        #enableACME = true;
+        enableACME = true;
       };
     };
   };
