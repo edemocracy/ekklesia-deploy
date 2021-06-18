@@ -187,7 +187,7 @@ in
 
         settings = {
           anonymizerUrl = "";
-          backendUrls = [ "http://${vvvote1Hostname}" "http://${vvvote2Hostname}" ];
+          backendUrls = [ "https://${vvvote1Hostname}" "https://${vvvote2Hostname}" ];
           debug = true;
           idServerUrl = keycloakUrl;
           publicKeydir = "/var/lib/vvvote/public-keys";
