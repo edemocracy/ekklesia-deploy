@@ -9,7 +9,7 @@ This will make deploying an Ekklesia installation quite easy using NixOS and Nix
 ## Quick Start
 
 There's a working example config for an Ekklesia Portal and two VVVote instances
-in `ekklesia.nix`. `ekklesia-virtualbox.nix` specifies a virtualbox network with
+in `ekklesia.nix`. `virtualbox.nix` specifies a virtualbox network with
  3 VMs meant for testing.
 
 The Nix shell sets up an ready-to-use deployment environment with NixOps and
@@ -27,8 +27,8 @@ You are now in a Nix shell that makes the `nixops` command available.
 
 ~~~
 # in Nix shell
-nixops create -d ekklesia-test ./ekklesia.nix ./ekklesia-virtualbox.nix
-nixops deploy -d ekklesia-test
+nixops create -d ekklesia-vbox ./ekklesia.nix ./virtualbox.nix
+nixops deploy -d ekklesia-vbox
 ~~~
 
 Deploying the first time like that will fail because VVVote cannot find private
@@ -37,14 +37,14 @@ keys files. They need to be created in a second step, followed by a redeploy:
 ~~~
 # in Nix shell
 python3 set-up-vvvote.py
-nixops deploy -d ekklesia-test
+nixops deploy -d ekklesia-vbox
 ~~~
 
-This also works with NixOS containers. Use `ekklesia-nixos-containers.nix` instead
-of `ekklesia-virtualbox.nix`. Note that the containers are deployed on the system
+This also works with NixOS containers. Use `container.nix` instead
+of `virtualbox.nix`. Note that the containers are deployed on the system
 on which you are running NixOps. That means that your current user needs to be able
 to SSH to root@localhost. You can also change the host to a remote system in
-`ekklesia-nixos-containers.nix` by using the `deployment.container.host` option
+`container.nix` by using the `deployment.container.host` option
 in the machine definitions.
 
 ## VVVote Administration Notes
@@ -67,7 +67,7 @@ first.
 This does everything needed to run VVVote. Keys are created if they do not exist.
 Existing private keys will not be replaced automatically for safety reasons.
 The script asks for an OAuth2 client secret and an Ekklesia Notify secret for both
-VMs.
+VMs. 
 
 ~~~
 # in Nix shell

@@ -1,0 +1,3 @@
+Host hostvm
+    IdentityFile ./ssh_key_hostvm
+    ProxyCommand ssh -v root@$(nixops info -d ekklesia-containers --plain | grep hostvm | cut -f 6)

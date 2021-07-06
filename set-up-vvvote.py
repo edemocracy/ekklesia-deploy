@@ -6,7 +6,7 @@ import subprocess
 import json
 
 
-DEPLOYMENT_NAME = "ekklesia-test"
+DEPLOYMENT_NAME = "ekklesia-containers"
 KEEP_KEYS = True
 
 
