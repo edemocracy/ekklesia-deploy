@@ -5,10 +5,10 @@
         "homepage": "",
         "owner": "edemocracy",
         "repo": "ekklesia-portal",
-        "rev": "a06aa6d9ff9270ccf106c679179b396b00860cad",
-        "sha256": "1kcdsj131sgxdjx39x027agnp0n4yafblyqidxf9v9g81xh9i4gf",
+        "rev": "b27eb50faa5c6c1efc268bff5fbc676446b81fac",
+        "sha256": "1m2p6kqwbzljq8bxf8z9915lzyfkilkaxg9608rf16xd5klsx5ik",
         "type": "tarball",
-        "url": "https://github.com/edemocracy/ekklesia-portal/archive/a06aa6d9ff9270ccf106c679179b396b00860cad.tar.gz",
+        "url": "https://github.com/edemocracy/ekklesia-portal/archive/b27eb50faa5c6c1efc268bff5fbc676446b81fac.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nix-ekklesia-vvvote": {
